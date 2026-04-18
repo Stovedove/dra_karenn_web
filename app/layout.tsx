@@ -18,10 +18,7 @@ export const metadata: Metadata = {
   description: 'Médica General con Formación Internacional comprometida con tu salud. Atención personalizada con ciencia y cercanía. Agenda tu consulta hoy.',
   generator: 'v0.app',
   keywords: ['doctora', 'médica', 'salud', 'consulta médica', 'medicina general', 'formación internacional'],
-  icons: {
-    icon: '/icono.png',
-    apple: '/apple-icon.png',
-  },
+  icons: '/icono.png',
 }
 
 export const viewport: Viewport = {
