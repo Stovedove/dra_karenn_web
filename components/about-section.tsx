@@ -70,7 +70,7 @@ export function AboutSection() {
                 La medicina llegó a mi vida como una forma natural de expresar mi vocación temprana por ayudar a los demás.
               </p>
               <p className="leading-relaxed">
-                Siempre estuve dispuesta a arriesgar lo propio con tal de obtener la mejor formación, lo que me llevó a migrar a Rusia, donde me gradué como médica. Actualmente ejerzo principalmente en España, con el corazón puesto en mis raíces colombianas y enriquecida por múltiples nacionalidades.
+                Siempre estuve dispuesta a arriesgar lo propio con tal de obtener la mejor formación, lo que me llevó a migrar a Rusia, donde me gradué como médica. Actualmente resido principalmente en España, con el corazón puesto en mis raíces colombianas y enriquecida por múltiples nacionalidades.
               </p>
               <p className="leading-relaxed">
                 Soy Karenn Cañón Benítez, médica colombiana graduada en Rusia.
