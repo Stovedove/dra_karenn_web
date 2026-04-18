@@ -19,10 +19,10 @@ export function Footer() {
           {/* Brand */}
           <div>
             <span className="font-serif text-xl font-semibold">
-              Dra. María Elena García
+              Dra. Karenn Cañón
             </span>
             <p className="mt-4 text-background/70 text-sm leading-relaxed">
-              Médica especialista comprometida con tu salud. 
+              Médica General con Formación Internacional comprometida con tu salud. 
               Brindando atención médica de calidad con calidez humana.
             </p>
           </div>
@@ -48,10 +48,8 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Contacto</h4>
             <ul className="space-y-3 text-sm text-background/70">
-              <li>+52 55 1234 5678</li>
-              <li>contacto@dramariaelena.com</li>
-              <li>Av. Insurgentes Sur 1234</li>
-              <li>Col. Del Valle, CDMX</li>
+              <li>+34667367671</li>
+              <li>dra.karennca@gmail.com</li>
             </ul>
           </div>
         </div>
@@ -59,7 +57,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-background/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-background/50">
-            © {currentYear} Dra. María Elena García. Todos los derechos reservados.
+            © {currentYear} Dra. Karenn Cañón. Todos los derechos reservados.
           </p>
           <p className="text-sm text-background/50 flex items-center gap-1">
             Hecho con <Heart className="w-4 h-4 text-primary fill-primary" /> para mis pacientes

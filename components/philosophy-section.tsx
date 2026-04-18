@@ -113,7 +113,7 @@ export function PhilosophySection() {
               {'"La medicina no es solo tratar enfermedades, es cuidar personas. Cada una con su historia, sus miedos y sus esperanzas."'}
             </p>
             <footer className="mt-6 text-muted-foreground">
-              — Dra. María Elena García
+              — Dra. Karenn Cañón
             </footer>
           </blockquote>
         </div>

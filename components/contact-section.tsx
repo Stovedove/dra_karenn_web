@@ -22,27 +22,27 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Teléfono",
-    value: "+52 55 1234 5678",
-    href: "tel:+525512345678",
+    value: "+34667367671",
+    href: "tel:+34667367671",
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
-    value: "+52 55 1234 5678",
-    href: "https://wa.me/525512345678",
+    value: "+34667367671",
+    href: "https://wa.me/34667367671",
   },
   {
     icon: Mail,
     label: "Correo",
-    value: "contacto@dramariaelena.com",
-    href: "mailto:contacto@dramariaelena.com",
+    value: "dra.karennca@gmail.com",
+    href: "mailto:dra.karennca@gmail.com",
   },
-  {
-    icon: MapPin,
-    label: "Consultorio",
-    value: "Av. Insurgentes Sur 1234, Col. Del Valle, CDMX",
-    href: "https://maps.google.com",
-  },
+  // {
+  //   icon: MapPin,
+  //   label: "Consultorio",
+  //   value: "Av. Insurgentes Sur 1234, Col. Del Valle, CDMX",
+  //   href: "https://maps.google.com",
+  // },
 ]
 
 const schedule = [
@@ -59,10 +59,30 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setIsSubmitting(false)
-    setSubmitted(true)
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch('https://formspree.io/f/xeevgnkr', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+      } else {
+        throw new Error('Error al enviar el formulario')
+      }
+    } catch (error) {
+      console.error('Error:', error)
+      alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -118,6 +138,7 @@ export function ContactSection() {
                       <Label htmlFor="name">Nombre completo</Label>
                       <Input
                         id="name"
+                        name="name"
                         placeholder="Tu nombre"
                         required
                         className="bg-background"
@@ -127,6 +148,7 @@ export function ContactSection() {
                       <Label htmlFor="phone">Teléfono</Label>
                       <Input
                         id="phone"
+                        name="phone"
                         type="tel"
                         placeholder="Tu teléfono"
                         required
@@ -138,6 +160,7 @@ export function ContactSection() {
                     <Label htmlFor="email">Correo electrónico</Label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="tu@email.com"
                       required
@@ -148,6 +171,7 @@ export function ContactSection() {
                     <Label htmlFor="reason">Motivo de consulta</Label>
                     <Input
                       id="reason"
+                      name="reason"
                       placeholder="Ej: Consulta general, seguimiento, etc."
                       required
                       className="bg-background"
@@ -157,6 +181,7 @@ export function ContactSection() {
                     <Label htmlFor="message">Mensaje (opcional)</Label>
                     <Textarea
                       id="message"
+                      name="message"
                       placeholder="Cuéntame más sobre tu situación..."
                       rows={4}
                       className="bg-background resize-none"
@@ -214,6 +239,7 @@ export function ContactSection() {
               </div>
 
               {/* Schedule */}
+              {/*
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
                   <Clock className="w-5 h-5 text-primary" />
@@ -233,6 +259,7 @@ export function ContactSection() {
                   </div>
                 </div>
               </div>
+              */}
 
               {/* Social Media */}
               <div>
@@ -241,7 +268,7 @@ export function ContactSection() {
                 </h3>
                 <div className="flex gap-4">
                   <a
-                    href="https://instagram.com"
+                    href="https://instagram.com/xkarennca"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center hover:border-primary/20 hover:bg-primary/5 transition-colors"
@@ -250,7 +277,7 @@ export function ContactSection() {
                     <Instagram className="w-5 h-5 text-muted-foreground" />
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/drakarenn/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center hover:border-primary/20 hover:bg-primary/5 transition-colors"

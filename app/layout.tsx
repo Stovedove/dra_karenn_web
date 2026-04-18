@@ -14,10 +14,10 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Dra. María Elena García | Médica Especialista',
-  description: 'Médica especialista comprometida con tu salud. Atención personalizada con ciencia y cercanía. Agenda tu consulta hoy.',
+  title: 'Dra. Karenn Cañón | Médica General',
+  description: 'Médica General con Formación Internacional comprometida con tu salud. Atención personalizada con ciencia y cercanía. Agenda tu consulta hoy.',
   generator: 'v0.app',
-  keywords: ['doctora', 'médica', 'salud', 'consulta médica', 'especialista'],
+  keywords: ['doctora', 'médica', 'salud', 'consulta médica', 'medicina general', 'formación internacional'],
   icons: {
     icon: [
       {

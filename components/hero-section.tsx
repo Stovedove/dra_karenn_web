@@ -29,10 +29,10 @@ export function HeroSection() {
               Bienvenidos
             </p>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground leading-tight text-balance">
-              Dra. María Elena García
+              Dra. Karenn Cañón
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 text-pretty">
-              Médica Especialista en Medicina Interna. Cuidando tu salud con ciencia, 
+              Médica General, Formación Internacional. Cuidando tu salud con ciencia, 
               empatía y atención personalizada.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -69,9 +69,9 @@ export function HeroSection() {
               {/* Main image container */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-muted">
                 <img
-                  src="/doctor-portrait.jpg"
-                  alt="Dra. María Elena García - Médica Especialista"
-                  className="w-full h-full object-cover"
+                  src="/doctor-karenn-canon.jpg"
+                  alt="Dra. Karenn Cañón - Médica General"
+                  className="w-full h-full object-cover object-bottom"
                 />
               </div>
             </div>

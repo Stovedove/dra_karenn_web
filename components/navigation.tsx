@@ -40,7 +40,7 @@ export function Navigation() {
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-2">
             <span className="font-serif text-xl font-semibold text-foreground">
-              Dra. María Elena
+              Dra. Karenn Cañón
             </span>
           </a>
 

@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { useInView } from "@/hooks/use-in-view"
 import { cn } from "@/lib/utils"
 import { GraduationCap, Award, BookOpen } from "lucide-react"
@@ -7,32 +8,62 @@ import { GraduationCap, Award, BookOpen } from "lucide-react"
 const education = [
   {
     icon: GraduationCap,
-    year: "2005 - 2011",
+    year: "2019 - 2025",
     title: "Medicina General",
-    institution: "Universidad Nacional Autónoma",
-    description: "Título de Médico Cirujano con honores",
+    institution: "Federación de Rusia, Universidad Estatal de Bélgorod.",
+    description: "Médico - Лечебное дело",
   },
   {
     icon: Award,
-    year: "2012 - 2016",
-    title: "Especialidad en Medicina Interna",
-    institution: "Hospital Central Universitario",
-    description: "Residencia médica con subespecialidad en enfermedades metabólicas",
+    year: "2024-2025",
+    title: "Diplomado en Bioestadística y Análisis de Datos en Salud.",
+    institution: "Federación de Rusia, Universidad Estatal de Bélgorod.",
+    description: "Estadística - Стадистик",
   },
   {
     icon: BookOpen,
-    year: "2018 - 2020",
-    title: "Maestría en Investigación Clínica",
-    institution: "Instituto de Ciencias Médicas",
-    description: "Enfoque en metodología de investigación y medicina basada en evidencia",
+    year: "2023.",
+    title: "Certificado de Especialista en Enfermería",
+    institution: "Federación de Rusia, Universidad Estatal de Bélgorod.",
+    description: "Enfermería - Сестринское дело",
   },
 ]
 
 const certifications = [
-  "Certificación del Consejo de Medicina Interna",
-  "Diplomado en Diabetes y Enfermedades Metabólicas",
-  "Curso Avanzado de Cardiología Preventiva",
-  "Certificación en Telemedicina y Salud Digital",
+  [
+    "Certificado de SUEROTERAPIA CLÍNICA EN MEDICINA ESTÉTICA Y ANTIENVEJECIMIENTO CON VITAMINA C.",
+    "Centro BioCare - Bogotá, Colombia",
+    "2026"
+  ],
+  [
+    "Simposios internacional en enfermedades reumáticas (Artritis Reumatoide)",
+    "Bogotá - Colombia",
+    "2023 - 2024 - 2025"
+  ],
+  [
+    "V Simposio Del Grupo De Interés En Psiquiatría.",
+    "Bogotá, Colombia",
+    "2025"
+  ],
+  [
+    "Participación activa en simposios de interés general, durante los años.",
+    "2023 - 2026"
+  ],
+  [
+    "Ruta de Diversidad, Inclusión y entorno laboral saludable.",
+    "Platzi",
+    "2026"
+  ],
+  [
+    "Certificado en curso de Salud y bienestar en el mundo actual.",
+    "Platzi",
+    "2026"
+  ],
+  [
+    "Curso de Habilidades blandas para el desarrollo profesional, Inteligencia Emocional, Inteligencia Emocional para líderes, Inteligencia Emocional para servicio al cliente. Curso de primeros auxilios psicológicos para líderes.",
+    "Platzi",
+    "2026"
+  ]
 ]
 
 export function EducationSection() {
@@ -126,32 +157,19 @@ export function EducationSection() {
                     className="flex items-start gap-4"
                   >
                     <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    <span className="text-muted-foreground">{cert}</span>
+                    <div>
+                      {cert.map((line, i) => (
+                        <React.Fragment key={i}>
+                          <span className={i === 0 ? "font-semibold text-foreground" : i === cert.length - 1 ? "text-sm text-muted-foreground" : "text-muted-foreground"}>
+                            {line}
+                          </span>
+                          {i < cert.length - 1 && <br />}
+                        </React.Fragment>
+                      ))}
+                    </div>
                   </li>
                 ))}
               </ul>
-              
-              <div className="mt-8 pt-8 border-t border-border">
-                <div className="flex items-center gap-4">
-                  <div className="text-center">
-                    <span className="block text-3xl font-serif font-semibold text-primary">
-                      15+
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      Años de experiencia
-                    </span>
-                  </div>
-                  <div className="w-px h-12 bg-border" />
-                  <div className="text-center">
-                    <span className="block text-3xl font-serif font-semibold text-primary">
-                      5000+
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      Pacientes atendidos
-                    </span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

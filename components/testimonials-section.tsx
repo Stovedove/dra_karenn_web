@@ -8,7 +8,7 @@ const testimonials = [
   {
     name: "Carmen Rodríguez",
     role: "Paciente desde 2019",
-    content: "La Dra. María Elena cambió mi forma de ver las consultas médicas. Por primera vez sentí que alguien realmente me escuchaba y se tomaba el tiempo de explicarme todo con paciencia.",
+    content: "La Dra. Karenn Cañón cambió mi forma de ver las consultas médicas. Por primera vez sentí que alguien realmente me escuchaba y se tomaba el tiempo de explicarme todo con paciencia.",
     rating: 5,
   },
   {

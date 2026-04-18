@@ -45,7 +45,7 @@ export function AboutSection() {
               <div className="relative w-full h-full rounded-2xl overflow-hidden">
                 <img
                   src="/doctor-about.jpg"
-                  alt="Dra. María Elena García en su consultorio"
+                  alt="Dra. Karenn Cañón en su consultorio"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -67,14 +67,16 @@ export function AboutSection() {
             </h2>
             <div className="mt-8 space-y-6 text-muted-foreground">
               <p className="text-lg leading-relaxed">
-                Desde pequeña supe que quería dedicar mi vida a cuidar de los demás. 
-                La medicina me encontró como una forma de combinar mi pasión por la ciencia 
-                con mi deseo de hacer una diferencia real en la vida de las personas.
+                La medicina llegó a mi vida como una forma natural de expresar mi vocación temprana por ayudar a los demás.
               </p>
               <p className="leading-relaxed">
-                Con más de 15 años de experiencia, he aprendido que cada paciente trae 
-                consigo una historia única. Mi compromiso es escuchar, comprender y 
-                acompañar en cada paso del camino hacia una mejor salud.
+                Siempre estuve dispuesta a arriesgar lo propio con tal de obtener la mejor formación, lo que me llevó a migrar a Rusia, donde me gradué como médica. Actualmente ejerzo principalmente en España, con el corazón puesto en mis raíces colombianas y enriquecida por múltiples nacionalidades.
+              </p>
+              <p className="leading-relaxed">
+                Soy Karenn Cañón Benítez, médica colombiana graduada en Rusia.
+              </p>
+              <p className="leading-relaxed">
+                Mi compromiso es total: fiel a cada paciente, a la comprensión profunda de su situación y al acompañamiento cercano y humano en su camino hacia una mejor salud.
               </p>
             </div>
 
