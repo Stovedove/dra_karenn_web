@@ -4,7 +4,7 @@ import { AboutSection } from "@/components/about-section"
 import { EducationSection } from "@/components/education-section"
 import { ServicesSection } from "@/components/services-section"
 import { PhilosophySection } from "@/components/philosophy-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
+// import { TestimonialsSection } from "@/components/testimonials-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 
@@ -18,7 +18,7 @@ export default function HomePage() {
         <EducationSection />
         <ServicesSection />
         <PhilosophySection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <ContactSection />
       </main>
       <Footer />

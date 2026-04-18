@@ -8,39 +8,41 @@ import {
   Shield, 
   Video,
   Pill,
-  ClipboardCheck
+  ClipboardCheck,
+  Stethoscope,
+  Brain
 } from "lucide-react"
 
 const services = [
   {
-    icon: Activity,
-    title: "Consulta General",
-    description: "Evaluación integral de tu estado de salud con atención personalizada y seguimiento continuo.",
-  },
-  {
-    icon: HeartPulse,
-    title: "Control de Enfermedades Crónicas",
-    description: "Manejo especializado de diabetes, hipertensión, dislipidemias y otras condiciones metabólicas.",
+    icon: Stethoscope,
+    title: "Consulta médica general",
+    description: "Valoración integral del paciente, orientada al diagnóstico, tratamiento y resolución de problemas de salud frecuentes, con un enfoque cercano y personalizado.",
   },
   {
     icon: Shield,
-    title: "Medicina Preventiva",
-    description: "Chequeos de rutina, detección temprana y estrategias para mantener tu bienestar.",
+    title: "Medicina preventiva y promoción de la salud",
+    description: "Evaluación de factores de riesgo y orientación en hábitos saludables para prevenir enfermedades y mejorar la calidad de vida a largo plazo.",
   },
   {
     icon: Video,
     title: "Telemedicina",
-    description: "Consultas virtuales seguras y cómodas desde la comodidad de tu hogar.",
-  },
-  {
-    icon: Pill,
-    title: "Seguimiento de Tratamientos",
-    description: "Acompañamiento continuo para asegurar la efectividad de tu plan terapéutico.",
+    description: "Atención médica online segura y accesible, ideal para consultas, orientación clínica y seguimiento sin necesidad de desplazamientos.",
   },
   {
     icon: ClipboardCheck,
-    title: "Check-up Ejecutivo",
-    description: "Evaluación completa diseñada para profesionales con agendas ocupadas.",
+    title: "Seguimiento y control de enfermedades",
+    description: "Acompañamiento continuo en patologías agudas y crónicas, con ajuste de tratamientos y monitoreo de la evolución clínica.",
+  },
+  {
+    icon: Activity,
+    title: "Chequeo médico integral",
+    description: "Evaluación completa del estado de salud mediante historia clínica, exploración física y estudios complementarios, enfocada en la detección temprana.",
+  },
+  {
+    icon: Brain,
+    title: "Evaluación inicial en salud mental",
+    description: "Valoración médica de síntomas como ansiedad, estrés o alteraciones del estado de ánimo, con orientación inicial y derivación oportuna si se requiere.",
   },
 ]
 
@@ -68,8 +70,7 @@ export function ServicesSection() {
             Mi práctica clínica
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            Ofrezco una atención médica integral, combinando experiencia clínica 
-            con las últimas tecnologías para cuidar de tu salud.
+            Como médico general, te ofrezco una atención médica integral, combinando mi experiencia clínica con un enfoque cercano y personalizado para cuidar tu salud.
           </p>
         </div>
 

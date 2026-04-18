@@ -53,16 +53,16 @@ export function PhilosophySection() {
             </h2>
             <div className="mt-8 space-y-6 text-muted-foreground">
               <p className="text-lg leading-relaxed">
-                Creo firmemente que la buena medicina comienza con una buena relación. 
-                Por eso, cada consulta es un espacio de confianza donde puedes 
-                expresarte libremente y donde yo me comprometo a escucharte con 
-                toda mi atención.
+                Soy fiel creyente de una medicina basada en la comunicación y en el valor de la escucha.
               </p>
               <p className="leading-relaxed">
-                No soy de las que ve pacientes en 10 minutos. Prefiero dedicar el 
-                tiempo necesario para entender tu situación completa: tu historia, 
-                tu estilo de vida, tus preocupaciones y tus metas. Solo así puedo 
-                ofrecerte un plan de cuidado verdaderamente personalizado.
+                Entiendo que cada persona tiene una historia única, que merece ser comprendida con una mirada que vaya más allá de los síntomas. Por eso, mi enfoque profesional se centra en crear espacios donde puedas expresarte con tranquilidad y sentirte realmente acompañado.
+              </p>
+              <p className="leading-relaxed">
+                Quiero comprender lo que vives, lo que sientes y lo que necesitas. No eres una enfermedad.
+              </p>
+              <p className="leading-relaxed">
+                Para mí, esto es darle sentido a la medicina.
               </p>
             </div>
           </div>
@@ -110,10 +110,10 @@ export function PhilosophySection() {
         >
           <blockquote className="max-w-3xl mx-auto">
             <p className="font-serif text-2xl sm:text-3xl text-foreground italic leading-relaxed">
-              {'"La medicina no es solo tratar enfermedades, es cuidar personas. Cada una con su historia, sus miedos y sus esperanzas."'}
+              {'"El secreto del cuidado del paciente está en interesarse verdaderamente por él."'}
             </p>
             <footer className="mt-6 text-muted-foreground">
-              — Dra. Karenn Cañón
+              — Francis Weld Peabody
             </footer>
           </blockquote>
         </div>
