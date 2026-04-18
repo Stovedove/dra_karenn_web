@@ -19,24 +19,7 @@ export const metadata: Metadata = {
   generator: 'v0.app',
   keywords: ['doctora', 'médica', 'salud', 'consulta médica', 'medicina general', 'formación internacional'],
   icons: {
-    icon: [
-      {
-        url: '/icon.webp',
-        type: 'image/webp',
-      },
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/icono.png',
     apple: '/apple-icon.png',
   },
 }
