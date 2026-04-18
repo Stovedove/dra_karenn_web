@@ -92,9 +92,9 @@ export function EducationSection() {
         </div>
 
         {/* Timeline */}
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-16 h-full">
           {/* Education Timeline */}
-          <div>
+          <div className="flex flex-col h-full">
             <h3 className="text-xl font-semibold text-foreground mb-8">
               Estudios
             </h3>
@@ -182,7 +182,7 @@ export function EducationSection() {
           {/* Certifications */}
           <div
             className={cn(
-              "transition-all duration-700 delay-500",
+              "transition-all duration-700 delay-500 flex flex-col h-full",
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}
           >
