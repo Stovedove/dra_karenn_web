@@ -3,7 +3,7 @@
 import React from "react"
 import { useInView } from "@/hooks/use-in-view"
 import { cn } from "@/lib/utils"
-import { GraduationCap, Award, BookOpen } from "lucide-react"
+import { GraduationCap, Award, BookOpen, Globe } from "lucide-react"
 
 const education = [
   {
@@ -135,6 +135,46 @@ export function EducationSection() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <h3 className="text-xl font-semibold text-foreground mb-8">
+                Idiomas
+              </h3>
+              <div className="relative">
+                <div className="absolute left-6 top-0 bottom-0 w-px bg-border" />
+                <div className="space-y-8">
+                  {[
+                    { language: "Español", level: "Nativo", icon: Globe },
+                    { language: "Ruso", level: "Nativo profesional", icon: Globe },
+                    { language: "Inglés", level: "Competencia intermedia en el trabajo", icon: Globe },
+                    { language: "Alemán", level: "Competencia básica", icon: Globe },
+                  ].map((item, index) => (
+                    <div
+                      key={item.language}
+                      className={cn(
+                        "relative pl-16 transition-all duration-500",
+                        isInView
+                          ? "opacity-100 translate-x-0"
+                          : "opacity-0 -translate-x-4"
+                      )}
+                      style={{ transitionDelay: `${200 + index * 150}ms` }}
+                    >
+                      <div className="absolute left-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <item.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold text-foreground mt-1">
+                          {item.language}
+                        </h4>
+                        <p className="text-sm text-muted-foreground mt-2">
+                          {item.level}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

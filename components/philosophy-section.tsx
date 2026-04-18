@@ -49,7 +49,7 @@ export function PhilosophySection() {
               Mi filosofía
             </p>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground leading-tight text-balance">
-              Una hora contigo
+              Un espacio dedicado a ti 
             </h2>
             <div className="mt-8 space-y-6 text-muted-foreground">
               <p className="text-lg leading-relaxed">
@@ -116,6 +116,15 @@ export function PhilosophySection() {
               — Francis Weld Peabody
             </footer>
           </blockquote>
+          <div className="mt-10 mx-auto max-w-3xl overflow-hidden rounded-3xl border border-border bg-muted">
+            <div className="relative aspect-[16/9] w-full overflow-hidden">
+              <img
+                src="/whatsapp-chat-horizontal.jpg"
+                alt="WhatsApp chat horizontal"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
