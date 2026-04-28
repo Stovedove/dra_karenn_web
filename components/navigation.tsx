@@ -44,10 +44,10 @@ export function Navigation() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm shadow-sm transition-all duration-300 md:backdrop-blur-none md:shadow-none",
           isScrolled
-            ? "bg-background/95 backdrop-blur-sm shadow-sm"
-            : "bg-transparent"
+            ? "md:bg-background/95 md:backdrop-blur-sm md:shadow-sm"
+            : "md:bg-transparent"
         )}
       >
         <nav className="w-full px-4 sm:px-6 lg:px-10">
