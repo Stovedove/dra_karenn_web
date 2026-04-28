@@ -1,34 +1,21 @@
 "use client"
 
 import { useInView } from "@/hooks/use-in-view"
+import { useLanguage } from "@/components/language-provider"
+import { getTranslations } from "@/lib/translations"
 import { cn } from "@/lib/utils"
 import { Clock, MessageCircle, UserCheck, Sparkles } from "lucide-react"
 
-const features = [
-  {
-    icon: Clock,
-    title: "Tiempo dedicado",
-    description: "Cada consulta dura entre 45-60 minutos. Sin prisas, sin interrupciones.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Escucha activa",
-    description: "Empezamos conversando sobre cómo te sientes, tus preocupaciones y objetivos de salud.",
-  },
-  {
-    icon: UserCheck,
-    title: "Decisiones compartidas",
-    description: "Juntos definimos el mejor plan de acción. Tu opinión siempre cuenta.",
-  },
-  {
-    icon: Sparkles,
-    title: "Explicaciones claras",
-    description: "Te explico todo en términos sencillos. Sin jerga médica innecesaria.",
-  },
-]
-
 export function PhilosophySection() {
   const { ref, isInView } = useInView()
+  const { language } = useLanguage()
+  const t = getTranslations(language).philosophy
+  const features = [
+    { icon: Clock, ...t.features[0] },
+    { icon: MessageCircle, ...t.features[1] },
+    { icon: UserCheck, ...t.features[2] },
+    { icon: Sparkles, ...t.features[3] },
+  ]
 
   return (
     <section
@@ -46,23 +33,23 @@ export function PhilosophySection() {
             )}
           >
             <p className="text-sm font-medium uppercase tracking-widest text-primary mb-4">
-              Mi filosofía
+              {t.badge}
             </p>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground leading-tight text-balance">
-              Un espacio dedicado a ti 
+              {t.title}
             </h2>
             <div className="mt-8 space-y-6 text-muted-foreground">
               <p className="text-lg leading-relaxed">
-                Soy fiel creyente de una medicina basada en la comunicación y en el valor de la escucha.
+                {t.paragraphs[0]}
               </p>
               <p className="leading-relaxed">
-                Entiendo que cada persona tiene una historia única, que merece ser comprendida con una mirada que vaya más allá de los síntomas. Por eso, mi enfoque profesional se centra en crear espacios donde puedas expresarte con tranquilidad y sentirte realmente acompañado.
+                {t.paragraphs[1]}
               </p>
               <p className="leading-relaxed">
-                Quiero comprender lo que vives, lo que sientes y lo que necesitas. No eres una enfermedad.
+                {t.paragraphs[2]}
               </p>
               <p className="leading-relaxed">
-                Para mí, esto es darle sentido a la medicina.
+                {t.paragraphs[3]}
               </p>
             </div>
           </div>
@@ -110,17 +97,17 @@ export function PhilosophySection() {
         >
           <blockquote className="max-w-3xl mx-auto">
             <p className="font-serif text-2xl sm:text-3xl text-foreground italic leading-relaxed">
-              {'"El secreto del cuidado del paciente está en interesarse verdaderamente por él."'}
+              {t.quote}
             </p>
             <footer className="mt-6 text-muted-foreground">
-              — Francis Weld Peabody
+              — {t.quoteAuthor}
             </footer>
           </blockquote>
           <div className="mt-10 mx-auto max-w-3xl overflow-hidden rounded-3xl border border-border bg-muted">
             <div className="relative aspect-[16/9] w-full overflow-hidden">
               <img
                 src="/whatsapp-chat-horizontal.jpg"
-                alt="WhatsApp chat horizontal"
+                alt={t.chatImageAlt}
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
             </div>

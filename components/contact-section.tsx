@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import { useInView } from "@/hooks/use-in-view"
+import { useLanguage } from "@/components/language-provider"
+import { getTranslations } from "@/lib/translations"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,51 +12,38 @@ import { Label } from "@/components/ui/label"
 import { 
   Phone, 
   Mail, 
-  MapPin, 
-  Clock,
   Send,
   Instagram,
   Linkedin,
   MessageCircle
 } from "lucide-react"
 
-const contactInfo = [
-  {
-    icon: Phone,
-    label: "Teléfono",
-    value: "+34667367671",
-    href: "tel:+34667367671",
-  },
-  {
-    icon: MessageCircle,
-    label: "WhatsApp",
-    value: "+34667367671",
-    href: "https://wa.me/34667367671",
-  },
-  {
-    icon: Mail,
-    label: "Correo",
-    value: "dra.karennca@gmail.com",
-    href: "mailto:dra.karennca@gmail.com",
-  },
-  // {
-  //   icon: MapPin,
-  //   label: "Consultorio",
-  //   value: "Av. Insurgentes Sur 1234, Col. Del Valle, CDMX",
-  //   href: "https://maps.google.com",
-  // },
-]
-
-const schedule = [
-  { day: "Lunes - Viernes", hours: "9:00 - 18:00" },
-  { day: "Sábados", hours: "9:00 - 14:00" },
-  { day: "Domingos", hours: "Cerrado" },
-]
-
 export function ContactSection() {
   const { ref, isInView } = useInView()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const { language } = useLanguage()
+  const t = getTranslations(language).contact
+  const contactInfo = [
+    {
+      icon: Phone,
+      label: t.contactInfoLabels.phone,
+      value: "+34667367671",
+      href: "tel:+34667367671",
+    },
+    {
+      icon: MessageCircle,
+      label: t.contactInfoLabels.whatsapp,
+      value: "+34667367671",
+      href: "https://wa.me/34667367671",
+    },
+    {
+      icon: Mail,
+      label: t.contactInfoLabels.email,
+      value: "dra.karennca@gmail.com",
+      href: "mailto:dra.karennca@gmail.com",
+    },
+  ]
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -79,7 +68,7 @@ export function ContactSection() {
       }
     } catch (error) {
       console.error('Error:', error)
-      alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.')
+      alert(t.sendError)
     } finally {
       setIsSubmitting(false)
     }
@@ -100,13 +89,13 @@ export function ContactSection() {
           )}
         >
           <p className="text-sm font-medium uppercase tracking-widest text-primary mb-4">
-            Contacto
+              {t.badge}
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground leading-tight text-balance">
-            Agenda tu consulta
+              {t.title}
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-            Estoy aquí para ayudarte. Contáctame para agendar una cita o resolver tus dudas.
+              {t.description}
           </p>
         </div>
 
@@ -125,64 +114,64 @@ export function ContactSection() {
                     <Send className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">
-                    ¡Mensaje enviado!
+                    {t.successTitle}
                   </h3>
                   <p className="text-muted-foreground">
-                    Me pondré en contacto contigo pronto.
+                    {t.successDescription}
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Nombre completo</Label>
+                      <Label htmlFor="name">{t.labels.fullName}</Label>
                       <Input
                         id="name"
                         name="name"
-                        placeholder="Tu nombre"
+                        placeholder={t.placeholders.fullName}
                         required
                         className="bg-background"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Teléfono</Label>
+                      <Label htmlFor="phone">{t.labels.phone}</Label>
                       <Input
                         id="phone"
                         name="phone"
                         type="tel"
-                        placeholder="Tu teléfono"
+                        placeholder={t.placeholders.phone}
                         required
                         className="bg-background"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email">Correo electrónico</Label>
+                    <Label htmlFor="email">{t.labels.email}</Label>
                     <Input
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="tu@email.com"
+                      placeholder={t.placeholders.email}
                       required
                       className="bg-background"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="reason">Motivo de consulta</Label>
+                    <Label htmlFor="reason">{t.labels.reason}</Label>
                     <Input
                       id="reason"
                       name="reason"
-                      placeholder="Ej: Consulta general, seguimiento, etc."
+                      placeholder={t.placeholders.reason}
                       required
                       className="bg-background"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="message">Mensaje (opcional)</Label>
+                    <Label htmlFor="message">{t.labels.message}</Label>
                     <Textarea
                       id="message"
                       name="message"
-                      placeholder="Cuéntame más sobre tu situación..."
+                      placeholder={t.placeholders.message}
                       rows={4}
                       className="bg-background resize-none"
                     />
@@ -193,7 +182,7 @@ export function ContactSection() {
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Enviando..." : "Enviar solicitud"}
+                    {isSubmitting ? t.submitSending : t.submitRequest}
                   </Button>
                 </form>
               )}
@@ -211,7 +200,7 @@ export function ContactSection() {
               {/* Contact Details */}
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-6">
-                  Información de contacto
+                  {t.detailsTitle}
                 </h3>
                 <div className="space-y-4">
                   {contactInfo.map((item) => (
@@ -264,7 +253,7 @@ export function ContactSection() {
               {/* Social Media */}
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-4">
-                  Sígueme
+                  {t.followMe}
                 </h3>
                 <div className="flex gap-4">
                   <a
@@ -272,7 +261,7 @@ export function ContactSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center hover:border-primary/20 hover:bg-primary/5 transition-colors"
-                    aria-label="Instagram"
+                    aria-label={t.socialAria.instagram}
                   >
                     <Instagram className="w-5 h-5 text-muted-foreground" />
                   </a>
@@ -281,7 +270,7 @@ export function ContactSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center hover:border-primary/20 hover:bg-primary/5 transition-colors"
-                    aria-label="LinkedIn"
+                    aria-label={t.socialAria.linkedin}
                   >
                     <Linkedin className="w-5 h-5 text-muted-foreground" />
                   </a>

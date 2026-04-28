@@ -2,72 +2,22 @@
 
 import React from "react"
 import { useInView } from "@/hooks/use-in-view"
+import { useLanguage } from "@/components/language-provider"
+import { getTranslations } from "@/lib/translations"
 import { cn } from "@/lib/utils"
 import { GraduationCap, Award, BookOpen, Globe } from "lucide-react"
 
-const education = [
-  {
-    icon: GraduationCap,
-    year: "2019 - 2025",
-    title: "Medicina General",
-    institution: "Federación de Rusia, Universidad Estatal de Bélgorod.",
-    description: "Médico - Лечебное дело",
-  },
-  {
-    icon: Award,
-    year: "2024-2025",
-    title: "Diplomado en Bioestadística y Análisis de Datos en Salud.",
-    institution: "Federación de Rusia, Universidad Estatal de Bélgorod.",
-    description: "Estadística - Стадистик",
-  },
-  {
-    icon: BookOpen,
-    year: "2023.",
-    title: "Certificado de Especialista en Enfermería",
-    institution: "Federación de Rusia, Universidad Estatal de Bélgorod.",
-    description: "Enfermería - Сестринское дело",
-  },
-]
-
-const certifications = [
-  [
-    "Certificado de SUEROTERAPIA CLÍNICA EN MEDICINA ESTÉTICA Y ANTIENVEJECIMIENTO CON VITAMINA C.",
-    "Centro BioCare - Bogotá, Colombia",
-    "2026"
-  ],
-  [
-    "Simposios internacional en enfermedades reumáticas (Artritis Reumatoide)",
-    "Bogotá - Colombia",
-    "2023 - 2024 - 2025"
-  ],
-  [
-    "V Simposio Del Grupo De Interés En Psiquiatría.",
-    "Bogotá, Colombia",
-    "2025"
-  ],
-  [
-    "Participación activa en simposios de interés general, durante los años.",
-    "2023 - 2026"
-  ],
-  [
-    "Ruta de Diversidad, Inclusión y entorno laboral saludable.",
-    "Platzi",
-    "2026"
-  ],
-  [
-    "Certificado en curso de Salud y bienestar en el mundo actual.",
-    "Platzi",
-    "2026"
-  ],
-  [
-    "Curso de Habilidades blandas para el desarrollo profesional, Inteligencia Emocional, Inteligencia Emocional para líderes, Inteligencia Emocional para servicio al cliente. Curso de primeros auxilios psicológicos para líderes.",
-    "Platzi",
-    "2026"
-  ]
-]
-
 export function EducationSection() {
   const { ref, isInView } = useInView()
+  const { language } = useLanguage()
+  const t = getTranslations(language).education
+  const education = [
+    { icon: GraduationCap, ...t.educationItems[0] },
+    { icon: Award, ...t.educationItems[1] },
+    { icon: BookOpen, ...t.educationItems[2] },
+  ]
+  const languageList = t.languageList.map((item) => ({ ...item, icon: Globe }))
+  const certifications = t.certifications
 
   return (
     <section
@@ -84,10 +34,10 @@ export function EducationSection() {
           )}
         >
           <p className="text-sm font-medium uppercase tracking-widest text-primary mb-4">
-            Formación académica
+              {t.badge}
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground leading-tight text-balance">
-            Preparación continua para cuidarte mejor
+              {t.title}
           </h2>
         </div>
 
@@ -96,7 +46,7 @@ export function EducationSection() {
           {/* Education Timeline */}
           <div className="flex flex-col h-full">
             <h3 className="text-xl font-semibold text-foreground mb-8">
-              Estudios
+              {t.studiesTitle}
             </h3>
             <div className="relative">
               {/* Timeline line */}
@@ -140,17 +90,12 @@ export function EducationSection() {
 
             <div className="mt-12">
               <h3 className="text-xl font-semibold text-foreground mb-8">
-                Idiomas
+                {t.languagesTitle}
               </h3>
               <div className="relative">
                 <div className="absolute left-6 top-0 bottom-0 w-px bg-border" />
                 <div className="space-y-8">
-                  {[
-                    { language: "Español", level: "Nativo", icon: Globe },
-                    { language: "Ruso", level: "Nativo profesional", icon: Globe },
-                    { language: "Inglés", level: "Competencia intermedia en el trabajo", icon: Globe },
-                    { language: "Alemán", level: "Competencia básica", icon: Globe },
-                  ].map((item, index) => (
+                  {languageList.map((item, index) => (
                     <div
                       key={item.language}
                       className={cn(
@@ -187,7 +132,7 @@ export function EducationSection() {
             )}
           >
             <h3 className="text-xl font-semibold text-foreground mb-8">
-              Certificaciones y cursos
+              {t.certificationsTitle}
             </h3>
             <div className="bg-card rounded-2xl p-8 border border-border">
               <ul className="space-y-4">

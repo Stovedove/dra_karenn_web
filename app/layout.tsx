@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { LanguageProvider } from '@/components/language-provider'
+import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 const inter = Inter({ 
@@ -15,7 +17,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: 'Dra. Karenn Cañón | Médica General',
-  description: 'Médica General con Formación Internacional comprometida con tu salud. Atención personalizada con ciencia y cercanía. Agenda tu consulta hoy.',
+  description: 'Médica con Formación Internacional comprometida con tu salud. Atención personalizada con ciencia y cercanía. Agenda tu consulta hoy.',
   generator: 'v0.app',
   keywords: ['doctora', 'médica', 'salud', 'consulta médica', 'medicina general', 'formación internacional'],
   icons: '/icono.png',
@@ -33,9 +35,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${playfair.variable} bg-background scroll-smooth`}>
+    <html
+      lang="es"
+      className={`${inter.variable} ${playfair.variable} bg-background scroll-smooth`}
+      suppressHydrationWarning
+    >
       <body className="font-sans antialiased">
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <LanguageProvider>{children}</LanguageProvider>
+        </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

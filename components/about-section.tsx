@@ -1,29 +1,20 @@
 "use client"
 
 import { useInView } from "@/hooks/use-in-view"
+import { useLanguage } from "@/components/language-provider"
+import { getTranslations } from "@/lib/translations"
 import { cn } from "@/lib/utils"
 import { Heart, Stethoscope, Users } from "lucide-react"
 
-const values = [
-  {
-    icon: Heart,
-    title: "Empatía",
-    description: "Cada paciente es único y merece ser escuchado con atención y comprensión.",
-  },
-  {
-    icon: Stethoscope,
-    title: "Ciencia",
-    description: "Decisiones basadas en evidencia científica actualizada y mejores prácticas.",
-  },
-  {
-    icon: Users,
-    title: "Cercanía",
-    description: "Relación médico-paciente basada en confianza y comunicación abierta.",
-  },
-]
-
 export function AboutSection() {
   const { ref, isInView } = useInView()
+  const { language } = useLanguage()
+  const t = getTranslations(language).about
+  const values = [
+    { icon: Heart, ...t.values[0] },
+    { icon: Stethoscope, ...t.values[1] },
+    { icon: Users, ...t.values[2] },
+  ]
 
   return (
     <section
@@ -45,7 +36,7 @@ export function AboutSection() {
               <div className="relative w-full h-full rounded-2xl overflow-hidden">
                 <img
                   src="/doctor-about.jpg"
-                  alt="Dra. Karenn Cañón en su consultorio"
+                  alt={t.imageAlt}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -60,23 +51,23 @@ export function AboutSection() {
             )}
           >
             <p className="text-sm font-medium uppercase tracking-widest text-primary mb-4">
-              Sobre mí
+              {t.badge}
             </p>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground leading-tight text-balance">
-              Mi historia y vocación
+              {t.title}
             </h2>
             <div className="mt-8 space-y-6 text-muted-foreground">
               <p className="text-lg leading-relaxed">
-                La medicina llegó a mi vida como una forma natural de expresar mi vocación temprana por ayudar a los demás.
+                {t.paragraphs[0]}
               </p>
               <p className="leading-relaxed">
-                Siempre estuve dispuesta a arriesgar lo propio con tal de obtener la mejor formación, lo que me llevó a migrar a Rusia, donde me gradué como médica. Actualmente resido principalmente en España, con el corazón puesto en mis raíces colombianas y enriquecida por múltiples nacionalidades.
+                {t.paragraphs[1]}
               </p>
               <p className="leading-relaxed">
-                Soy Karenn Cañón Benítez, médica colombiana graduada en Rusia.
+                {t.paragraphs[2]}
               </p>
               <p className="leading-relaxed">
-                Mi compromiso es total: fiel a cada paciente, a la comprensión profunda de su situación y al acompañamiento cercano y humano en su camino hacia una mejor salud.
+                {t.paragraphs[3]}
               </p>
             </div>
 

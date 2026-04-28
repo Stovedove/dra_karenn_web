@@ -1,11 +1,15 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/components/language-provider"
 import { useInView } from "@/hooks/use-in-view"
+import { getTranslations } from "@/lib/translations"
 import { cn } from "@/lib/utils"
 
 export function HeroSection() {
   const { ref, isInView } = useInView()
+  const { language } = useLanguage()
+  const t = getTranslations(language).hero
 
   return (
     <section
@@ -26,14 +30,13 @@ export function HeroSection() {
             )}
           >
             <p className="text-sm font-medium uppercase tracking-widest text-primary mb-4">
-              Bienvenidos
+              {t.badge}
             </p>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground leading-tight text-balance">
               Dra. Karenn Cañón
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 text-pretty">
-              Médica General, Formación Internacional. Cuidando tu salud con ciencia, 
-              empatía y atención personalizada.
+              {t.description}
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
@@ -41,7 +44,7 @@ export function HeroSection() {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
               >
-                <a href="#contacto">Agendar consulta</a>
+                <a href="#contacto">{t.bookConsultation}</a>
               </Button>
               <Button
                 asChild
@@ -49,7 +52,7 @@ export function HeroSection() {
                 size="lg"
                 className="border-foreground/20 hover:bg-accent px-8"
               >
-                <a href="#sobre-mi">Conóceme</a>
+                <a href="#sobre-mi">{t.meetMe}</a>
               </Button>
             </div>
           </div>
@@ -70,7 +73,7 @@ export function HeroSection() {
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-muted">
                 <img
                   src="/doctor-karenn-canon.jpg"
-                  alt="Dra. Karenn Cañón - Médica General"
+                  alt={t.doctorImageAlt}
                   className="w-full h-full object-cover object-bottom"
                 />
               </div>
